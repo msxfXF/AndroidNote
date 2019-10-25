@@ -1,0 +1,2 @@
+rootProject.name='心飞云笔记'
+include ':app'
