@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10.0dip"
+        android:paddingVertical="10.0dip"
+        android:paddingTop="10.0dip"
+        android:paddingBottom="10.0dip"
+        app:cardCornerRadius="5.0dip"
+        app:cardElevation="5.0dip">
+
+        <ImageView
+            android:id="@+id/card_backimg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="#aaa"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20.0dip">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:orientation="horizontal">
+
+                <com.joooonho.SelectableRoundedImageView
+                    android:id="@+id/card_head"
+                    android:layout_width="48.0dip"
+                    android:layout_height="48.0dip"
+                    android:layout_gravity="left"
+                    android:scaleType="centerCrop"
+                    app:sriv_border_width="0.0dip"
+                    app:sriv_left_bottom_corner_radius="16.0dip"
+                    app:sriv_left_top_corner_radius="16.0dip"
+                    app:sriv_oval="true"
+                    app:sriv_right_bottom_corner_radius="16.0dip"
+                    app:sriv_right_top_corner_radius="16.0dip" />
+
+                <TextView
+                    android:id="@+id/card_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:gravity="center"
+                    android:text="username"
+                    android:textAlignment="center"
+                    android:textColor="#ffeeeeee"
+                    android:textSize="10.0pt" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/card_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:text="aaaa"
+                android:textColor="#ffffffff"
+                android:textSize="15.0pt" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginTop="12.0dip">
+
+                <ImageView
+                    android:layout_width="18.0dip"
+                    android:layout_height="18.0dip"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/card_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10.0dip"
+                    android:paddingRight="10.0dip"
+                    android:text="2019.5.1 15:23"
+                    android:textColor="#ffeeeeee"
+                    android:textSize="8.0pt" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

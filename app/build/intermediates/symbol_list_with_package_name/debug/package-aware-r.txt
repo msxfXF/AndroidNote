@@ -1477,6 +1477,7 @@ drawable mtrl_popupmenu_background_dark
 drawable mtrl_slider_label
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable nobody
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1568,10 +1569,14 @@ id beginning
 id blocking
 id bold
 id bottom
-id btn_login
 id buttonPanel
 id cancel_action
 id cancel_button
+id card_backimg
+id card_head
+id card_time
+id card_title
+id card_username
 id card_view
 id center
 id center_horizontal
@@ -1641,7 +1646,6 @@ id icon
 id icon_group
 id ifRoom
 id image
-id img_head
 id info
 id invisible
 id italic
@@ -1700,7 +1704,6 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
-id nsv
 id off
 id on
 id outline
@@ -1718,6 +1721,7 @@ id progress_circular
 id progress_horizontal
 id psts_tab_title
 id radio
+id recyclerView
 id right
 id right_icon
 id right_side
@@ -1785,12 +1789,8 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id text_gender
 id text_input_end_icon
 id text_input_start_icon
-id text_login
-id text_nickname
-id text_username
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -1901,6 +1901,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment1
 layout header_logo
+layout item
 layout material_view_pager_imageview_header
 layout material_view_pager_layout
 layout material_view_pager_moving_header
@@ -1936,6 +1937,7 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
+layout mypagertitlestrip
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action

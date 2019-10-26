@@ -28,6 +28,10 @@
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable-xhdpi/ic_menu.png"
     },
     {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/layout_item.xml.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/layout/item.xml"
+    },
+    {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
@@ -80,6 +84,10 @@
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/layout/header_logo.xml"
     },
     {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable_nobody.jpg.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable/nobody.jpg"
+    },
+    {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_menu.xml.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable-anydpi/ic_menu.xml"
     },
@@ -98,6 +106,10 @@
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable_b_hulk.jpg.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable/b_hulk.jpg"
+    },
+    {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/layout_mypagertitlestrip.xml.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/layout/mypagertitlestrip.xml"
     },
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",

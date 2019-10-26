@@ -18,21 +18,20 @@
         android:id="@+id/materialViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         app:viewpager_logo="@layout/header_logo"
-        app:viewpager_logoMarginTop="100dp"
+        app:viewpager_logoMarginTop="80dp"
         app:viewpager_color="@color/colorPrimary"
         app:viewpager_headerHeight="200dp"
-        app:viewpager_headerAlpha="1.0"
-        app:viewpager_hideLogoWithFade="true"
-        app:viewpager_hideToolbarAndTitle="true"
+        app:viewpager_headerAlpha="0.7"
+        app:viewpager_hideLogoWithFade="false"
+        app:viewpager_hideToolbarAndTitle="false"
         app:viewpager_enableToolbarElevation="true"
         app:viewpager_parallaxHeaderFactor="1.5"
-        app:viewpager_headerAdditionalHeight="20dp"
         app:viewpager_displayToolbarWhenSwipe="true"
         app:viewpager_transparentToolbar="true"
         app:viewpager_animatedHeaderImage="true"
-        app:viewpager_disableToolbar="false"
+        app:viewpager_disableToolbar="true"
+        app:viewpager_pagerTitleStrip="@layout/my_pagertitlestrip"
 
         />
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -41,7 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:navigationIcon="@drawable/ic_menu"
-
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
