@@ -10,39 +10,142 @@
 9        android:targetSdkVersion="29" />
 9-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml
 10
-11    <application
-11-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:5:5-19:19
-12        android:allowBackup="true"
-12-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:6:9-35
-13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] /home/xf/.gradle/caches/transforms-2/files-2.1/8a1d947778c3b1f80abb56b30c93207c/core-1.1.0/AndroidManifest.xml:24:18-86
-14        android:debuggable="true"
-15        android:extractNativeLibs="false"
-16        android:icon="@mipmap/ic_launcher"
-16-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:7:9-43
-17        android:label="@string/app_name"
-17-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:8:9-41
-18        android:roundIcon="@mipmap/ic_launcher_round"
-18-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:9:9-54
-19        android:supportsRtl="true"
-19-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:10:9-35
-20        android:testOnly="true"
-21        android:theme="@style/AppTheme" >
-21-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:11:9-40
-22        <activity android:name="cn.msxf0.note.MainActivity" >
-22-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:12:9-18:20
-22-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:12:19-47
-23            <intent-filter>
-23-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:13:13-17:29
-24                <action android:name="android.intent.action.MAIN" />
-24-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:14:17-69
-24-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:14:25-66
-25
-26                <category android:name="android.intent.category.LAUNCHER" />
-26-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:16:17-77
-26-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:16:27-74
-27            </intent-filter>
-28        </activity>
-29    </application>
-30
-31</manifest>
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:5:5-67
+11-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:6:5-79
+12-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+13-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:7:5-81
+13-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:7:22-78
+14    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+14-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:8:5-75
+14-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:8:22-72
+15    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+15-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:9:5-76
+15-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:9:22-73
+16    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+16-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:10:5-79
+16-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:10:22-77
+17    <uses-permission android:name="android.permission.WRITE_VOICEMAIL" />
+17-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:11:5-73
+17-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:11:22-71
+18    <uses-permission android:name="android.permission.CAMERA" />
+18-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:12:5-64
+18-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:12:22-62
+19    <uses-permission android:name="android.permission.INTERNET" />
+19-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:5:5-67
+19-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:5:22-64
+20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+20-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:14:5-79
+20-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:14:22-77
+21
+22    <application
+22-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:17:5-36:19
+23        android:allowBackup="true"
+23-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:18:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.1.0] /home/xf/.gradle/caches/transforms-2/files-2.1/8a1d947778c3b1f80abb56b30c93207c/core-1.1.0/AndroidManifest.xml:24:18-86
+25        android:debuggable="true"
+26        android:extractNativeLibs="false"
+27        android:icon="@mipmap/ic_launcher"
+27-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:19:9-43
+28        android:label="@string/app_name"
+28-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:20:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:21:9-54
+30        android:supportsRtl="true"
+30-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:22:9-35
+31        android:testOnly="true"
+32        android:theme="@style/AppTheme"
+32-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:23:9-40
+33        android:usesCleartextTraffic="true" >
+33-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:24:9-44
+34        <activity
+34-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:25:9-28:20
+35            android:name="cn.msxf0.note.MarkdownActivity"
+35-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:25:19-51
+36            android:windowSoftInputMode="adjustPan" >
+36-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:26:13-52
+37        </activity>
+38        <activity android:name="cn.msxf0.note.MainActivity" >
+38-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:29:9-35:20
+38-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:29:19-47
+39            <intent-filter>
+39-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:30:13-34:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:31:17-69
+40-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:31:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:33:17-77
+42-->/home/xf/AndroidStudioProjects/Note/app/src/main/AndroidManifest.xml:33:27-74
+43            </intent-filter>
+44        </activity>
+45
+46        <provider
+46-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:12:9-20:20
+47            android:name="com.luck.picture.lib.PictureFileProvider"
+47-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:13:13-68
+48            android:authorities="cn.msxf0.note.provider"
+48-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:14:13-60
+49            android:exported="false"
+49-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:15:13-37
+50            android:grantUriPermissions="true" >
+50-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:16:13-47
+51            <meta-data
+51-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:17:13-19:54
+52                android:name="android.support.FILE_PROVIDER_PATHS"
+52-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:18:17-67
+53                android:resource="@xml/file_paths" />
+53-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:19:17-51
+54        </provider>
+55
+56        <activity android:name="com.luck.picture.lib.PictureSelectorActivity" />
+56-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:22:9-81
+56-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:22:19-78
+57        <activity android:name="com.luck.picture.lib.PictureSelectorWeChatStyleActivity" />
+57-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:23:9-92
+57-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:23:19-89
+58        <activity
+58-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:24:9-26:64
+59            android:name="com.luck.picture.lib.PictureSelectorCameraEmptyActivity"
+59-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:25:13-83
+60            android:theme="@style/Picture.Theme.Translucent" />
+60-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:26:13-61
+61        <activity android:name="com.luck.picture.lib.PicturePreviewActivity" />
+61-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:27:9-80
+61-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:27:19-77
+62        <activity android:name="com.luck.picture.lib.PictureSelectorPreviewWeChatStyleActivity" />
+62-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:28:9-99
+62-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:28:19-96
+63        <activity
+63-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:29:9-32:50
+64            android:name="com.luck.picture.lib.PictureVideoPlayActivity"
+64-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:30:13-73
+65            android:configChanges="orientation|keyboardHidden|screenSize"
+65-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:31:13-74
+66            android:screenOrientation="sensor" />
+66-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:32:13-47
+67        <activity android:name="com.luck.picture.lib.PictureExternalPreviewActivity" />
+67-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:33:9-88
+67-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:33:19-85
+68        <activity
+68-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:34:9-36:61
+69            android:name="com.yalantis.ucrop.UCropActivity"
+69-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:35:13-60
+70            android:theme="@style/Base.Theme.NoActionBar" />
+70-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:36:13-58
+71        <activity
+71-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:37:9-39:61
+72            android:name="com.yalantis.ucrop.PictureMultiCuttingActivity"
+72-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:38:13-74
+73            android:theme="@style/Base.Theme.NoActionBar" />
+73-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:39:13-58
+74        <activity android:name="com.luck.picture.lib.PicturePlayAudioActivity" />
+74-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:40:9-82
+74-->[com.github.LuckSiege.PictureSelector:picture_library:v2.3.8] /home/xf/.gradle/caches/transforms-2/files-2.1/4d55e760db6a20d3800b7ed77350badb/jetified-picture_library-v2.3.8/AndroidManifest.xml:40:19-79
+75    </application>
+76
+77</manifest>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#ff7cb342"
+        android:paddingVertical="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <ImageView
+            android:id="@+id/card_backimg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:adjustViewBounds="true"
+            android:background="#ff7cb342"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.joooonho.SelectableRoundedImageView
+                    android:id="@+id/card_head"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="left"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nobody"
+                    app:sriv_border_width="0dp"
+                    app:sriv_left_bottom_corner_radius="16dp"
+                    app:sriv_left_top_corner_radius="16dp"
+                    app:sriv_oval="true"
+                    app:sriv_right_bottom_corner_radius="16dp"
+                    app:sriv_right_top_corner_radius="16dp" />
+
+                <TextView
+                    android:id="@+id/card_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="username"
+                    android:textAlignment="center"
+                    android:textColor="#ffeeeeee"
+                    android:textSize="10.0pt" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/card_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="aaaa"
+                android:textColor="#ffffffff"
+                android:textSize="15.0pt" />
+
+            <br.tiagohm.markdownview.MarkdownView
+                android:id="@+id/MDV"
+                app:escapeHtml="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </br.tiagohm.markdownview.MarkdownView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="12dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/card_time"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="2019.5.1 15:23"
+                    android:textColor="#ffeeeeee"
+                    android:textSize="8.0pt" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

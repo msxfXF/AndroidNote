@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10.0dip"
+            android:paddingVertical="10.0dip"
+            android:paddingTop="10.0dip"
+            android:paddingBottom="10.0dip"
+            app:cardCornerRadius="5.0dip"
+            app:cardElevation="5.0dip">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="#29B6F6"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="15dp">
+
+                <LinearLayout
+                    android:id="@+id/lin_ocr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="left"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ocr"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="48.0dip"
+                        android:layout_marginLeft="10.0dip"
+                        android:gravity="center"
+                        android:text="OCR文字识别"
+                        android:textAlignment="center"
+                        android:textColor="#ffffffff"
+                        android:textSize="15pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="        集成百度AI开放平台的SDK\n        对图片中的文字进行检测和识别，支持中、英、法、俄、西、葡、德、意、日、韩、中英混合等多语种识别，同时支持中、英、日、韩四语种的类型检测"
+                        android:textColor="#ffeeeeee"
+                        android:textSize="7pt" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10.0dip"
+            android:paddingVertical="10.0dip"
+            android:paddingTop="10.0dip"
+            android:paddingBottom="10.0dip"
+            app:cardCornerRadius="5.0dip"
+            app:cardElevation="5.0dip">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="#5C6BC0"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="left"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/nls"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="48.0dip"
+                        android:layout_marginLeft="10.0dip"
+                        android:gravity="center"
+                        android:text="语音识别"
+                        android:textAlignment="center"
+                        android:textColor="#ffffffff"
+                        android:textSize="15pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="        集成百度AI开放平台的SDK\n        支持普通话和略带口音的中文识别；支持粤语、四川话方言识别；支持英文识别
+"
+                        android:textColor="#ffeeeeee"
+                        android:textSize="7pt" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10.0dip"
+            android:paddingVertical="10.0dip"
+            android:paddingTop="10.0dip"
+            android:paddingBottom="10.0dip"
+            app:cardCornerRadius="5.0dip"
+            app:cardElevation="5.0dip">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="#AB47BC"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="left"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/weather"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="48.0dip"
+                        android:layout_marginLeft="10.0dip"
+                        android:gravity="center"
+                        android:text="天气预报"
+                        android:textAlignment="center"
+                        android:textColor="#ffffffff"
+                        android:textSize="15pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="        集成和风天气的SDK\n        和风天气的天气数据开发是一个强大、现代化、开发友好的天气数据服务。"
+                        android:textColor="#ffeeeeee"
+                        android:textSize="7pt" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

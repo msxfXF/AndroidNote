@@ -9,6 +9,17 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_VOICEMAIL" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -19,7 +30,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name="cn.msxf0.note.MarkdownActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
         <activity android:name="cn.msxf0.note.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +43,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="com.luck.picture.lib.PictureFileProvider"
+            android:authorities="cn.msxf0.note.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name="com.luck.picture.lib.PictureSelectorActivity" />
+        <activity android:name="com.luck.picture.lib.PictureSelectorWeChatStyleActivity" />
+        <activity
+            android:name="com.luck.picture.lib.PictureSelectorCameraEmptyActivity"
+            android:theme="@style/Picture.Theme.Translucent" />
+        <activity android:name="com.luck.picture.lib.PicturePreviewActivity" />
+        <activity android:name="com.luck.picture.lib.PictureSelectorPreviewWeChatStyleActivity" />
+        <activity
+            android:name="com.luck.picture.lib.PictureVideoPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensor" />
+        <activity android:name="com.luck.picture.lib.PictureExternalPreviewActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:theme="@style/Base.Theme.NoActionBar" />
+        <activity
+            android:name="com.yalantis.ucrop.PictureMultiCuttingActivity"
+            android:theme="@style/Base.Theme.NoActionBar" />
+        <activity android:name="com.luck.picture.lib.PicturePlayAudioActivity" />
     </application>
 
 </manifest>

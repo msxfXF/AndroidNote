@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/card_view"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5.0dip"
+    app:cardElevation="5.0dip">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="10.0dip">
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20.0dip"
+            android:text="编辑便签"
+            android:textAlignment="center"
+            android:textSize="12.0pt" />
+
+        <EditText
+            android:id="@+id/dialog_edit_title"
+            android:layout_width="260.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30.0dip"
+            android:backgroundTint="#ff1565c0"
+            android:hint="请输入标题"
+            android:shadowColor="#ff000000"
+            android:shadowRadius="2.0"
+            android:textColor="#ff1a237e"
+            android:textSize="10.0pt" />
+
+        <EditText
+            android:id="@+id/dialog_edit_content"
+            android:layout_width="260.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10.0dip"
+            android:backgroundTint="#ff1565c0"
+            android:hint="请输入内容"
+            android:maxLines="5"
+            android:shadowColor="#ff000000"
+            android:shadowRadius="2.0"
+            android:singleLine="false"
+            android:textColor="#ff1a237e"
+            android:textSize="10.0pt" />
+
+        <Button
+            android:id="@+id/dialog_btn_y"
+            android:layout_width="260.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25.0dip"
+            android:backgroundTint="#ff2196f3"
+            android:text="确  认"
+            android:textSize="9.0pt" />
+
+        <Button
+            android:id="@+id/dialog_btn_del"
+            android:layout_width="260.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5.0dip"
+            android:backgroundTint="#ffe53935"
+            android:text="删  除"
+            android:textSize="9.0pt" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,5 +1,6 @@
 package cn.msxf0.note;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
@@ -7,35 +8,110 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.transition.Explode;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import cn.leancloud.AVLogger;
+import cn.leancloud.AVOSCloud;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.AVUser;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity {
     private MaterialViewPager mViewPager;
     private Toolbar toolbar;
     private ActionBar actionBar;
+    private BottomAppBar bottomAppBar;
+    private FloatingActionButton fab;
+    private FragmentNote fragmentNote;
+    private FragmentMarkdown fragmentMarkdown;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initLeanCloud();
         setWindowFeature(); //设置窗口风格 沉浸式 输入法
         setTransition();
         setContentView(R.layout.activity_main);
-
         initView();
 
 
+        OCR.getInstance(MainActivity.this).initAccessToken(new OnResultListener<AccessToken>() {
+            @Override
+            public void onResult(AccessToken result) {
+                // 调用成功，返回AccessToken对象
+                String token = result.getAccessToken();
+            }
+
+            @Override
+            public void onError(OCRError error) {
+                // 调用失败，返回OCRError子类SDKError对象
+                System.out.println("fail");
+            }
+        }, getApplicationContext());
     }
+
+    private void initLeanCloud() {
+//        AVOSCloud.initialize(this,"YhmvLJOcWoFs1jcFsBkFfbWa-gzGzoHsz", "RTvYqUdJI3eKSpzaGm0HPaht","");
+        AVOSCloud.initialize(this, "YhmvLJOcWoFs1jcFsBkFfbWa-gzGzoHsz", "RTvYqUdJI3eKSpzaGm0HPaht", "https://notes.msxf.fun");
+        AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
+        AVUser.loginByEmail("1263413089@qq.com", "123456").subscribe(new Observer<AVUser>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(AVUser avUser) {
+                Toast.makeText(MainActivity.this, "登录成功" + avUser.getUsername(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Toast.makeText(MainActivity.this, "登录失败" + e.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
 
     /**
      * @author XiaoFei
@@ -85,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("RestrictedApi")
     private void initView() {
+        fab = findViewById(R.id.fab);
+        bottomAppBar = findViewById(R.id.bar);
         mViewPager = findViewById(R.id.materialViewPager);
         toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
@@ -97,7 +175,47 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDefaultDisplayHomeAsUpEnabled(false);
             actionBar.setDisplayShowTitleEnabled(false);
         }
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (mViewPager.getViewPager().getCurrentItem()) {
+                    case 0:
+                        fragmentNote.addItem();
+                        break;
+                    case 1:
+                        fragmentMarkdown.addItem();
+                        break;
+                    default:
+                        try {
+                            AppUtils.goAppShop(MainActivity.this);
+                        } catch (Exception e) {
+//                            Snackbar.make(mViewPager, "没有找到应用市场", Snackbar.LENGTH_INDEFINITE).show();
+                        }
 
+                }
+            }
+        });
+        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+//                System.out.println(item.getItemId());
+                switch (item.getItemId()) {
+                    case R.id.app_bar_1:
+                        mViewPager.getViewPager().setCurrentItem(0, true);
+                        break;
+                    case R.id.app_bar_2:
+                        mViewPager.getViewPager().setCurrentItem(1, true);
+                        break;
+                    case R.id.app_bar_3:
+                        mViewPager.getViewPager().setCurrentItem(2, true);
+                        break;
+                    case R.id.app_bar_4:
+                        mViewPager.getViewPager().setCurrentItem(3, true);
+                        break;
+                }
+                return false;
+            }
+        });
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
@@ -108,12 +226,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 switch (position % 4) {
-                    //case 0:
-                    //    return RecyclerViewFragment.newInstance();
-                    //case 1:
-                    //    return RecyclerViewFragment.newInstance();
-                    //case 2:
-                    //    return WebViewFragment.newInstance();
+                    case 0:
+                        fragmentNote = FragmentNote.newInstance();
+                        return fragmentNote;
+
+                    case 1:
+                        fragmentMarkdown = FragmentMarkdown.newInstance();
+                        return fragmentMarkdown;
+                    case 2:
+                        return FragmentTool.newInstance();
                     default:
                         return FragmentNote.newInstance();
                 }
@@ -155,14 +276,37 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
-        mViewPager.getPagerTitleStrip().setVisibility(View.GONE);
+        mViewPager.getViewPager().addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                System.out.println(position);
+                if (position == 2 || position == 3) {
+//                    fab.hide();
+                    fab.setImageResource(R.drawable.star);
+                } else {
+                    fab.show();
+                    fab.setImageResource(R.drawable.add);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
 
-
-
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

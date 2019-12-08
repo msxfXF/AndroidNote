@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.ViewPropertyAnimatorListener;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -15,6 +17,8 @@ import com.bumptech.glide.Glide;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
 
 /**
  *  * @author XiaoFei
@@ -26,6 +30,12 @@ import java.util.Date;
 public class AdapterNote extends RecyclerView.Adapter<AdapterNote.VH> {
     private ArrayList<Note> items;
     private Context context;
+
+    public void setListener(CardViewItemListener listener) {
+        this.listener = listener;
+    }
+
+    private CardViewItemListener listener;
 
     //    private View.OnClickListener listener;
     public AdapterNote(Context context, ArrayList<Note> items) {
@@ -57,15 +67,14 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.VH> {
         } else {
             Glide.with(context).load(note.getAuthor_face()).into(holder.card_head);
         }
-//        holder.itemView.setOnClickListener(new View.OnClickListener()
-//        {
-//            public void onClick(View paramAnonymousView)
-//            {
-//                if (listener != null) {
-//                    listener.onClick();
-//                }
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View paramAnonymousView) {
+                if (listener != null) {
+                    listener.onCardViewItemClick(position);
+                } else {
+                }
+            }
+        });
 
     }
 
@@ -74,7 +83,7 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.VH> {
         return items.size();
     }
 
-    class VH extends RecyclerView.ViewHolder {
+    class VH extends RecyclerView.ViewHolder implements AnimateViewHolder {
         private ImageView card_backimg;
         private ImageView card_head;
         private TextView card_time;
@@ -90,6 +99,30 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.VH> {
             this.card_head = (itemView.findViewById(R.id.card_head));
             this.card_backimg = (itemView.findViewById(R.id.card_backimg));
             this.card_username = (itemView.findViewById(R.id.card_username));
+        }
+
+        @Override
+        public void preAnimateAddImpl(RecyclerView.ViewHolder viewHolder) {
+
+            ViewCompat.setTranslationY(this.itemView, -this.itemView.getHeight() * 0.3F);
+            ViewCompat.setAlpha(this.itemView, 0.0F);
+        }
+
+        @Override
+        public void preAnimateRemoveImpl(RecyclerView.ViewHolder viewHolder) {
+
+        }
+
+        @Override
+        public void animateAddImpl(RecyclerView.ViewHolder viewHolder, ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
+            ViewCompat.animate(this.itemView).translationY(0.0F).alpha(1.0F).setDuration(500L).start();
+
+        }
+
+        @Override
+        public void animateRemoveImpl(RecyclerView.ViewHolder viewHolder, ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
+            ViewCompat.animate(this.itemView).translationY(-this.itemView.getHeight() * 0.3F).alpha(0.0F).setDuration(500L).start();
+
         }
     }
 }
