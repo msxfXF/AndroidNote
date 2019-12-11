@@ -20,12 +20,12 @@
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable_upload.png.flat",
-        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable/upload.png"
-    },
-    {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable_bold.png.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable/bold.png"
+    },
+    {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable_upload.png.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable/upload.png"
     },
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/layout_item_note.xml.flat",
@@ -42,6 +42,10 @@
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable_account.png.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable/account.png"
+    },
+    {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/layout_dialog_nls.xml.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/layout/dialog_nls.xml"
     },
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_menu.png.flat",
@@ -86,6 +90,10 @@
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable-mdpi_add.png.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable-mdpi/add.png"
+    },
+    {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/layout_dialog_login.xml.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/layout/dialog_login.xml"
     },
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
@@ -144,12 +152,12 @@
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/layout/my_pagertitlestrip.xml"
     },
     {
-        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable-xxhdpi_add.png.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable-xxhdpi/add.png"
+    },
+    {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/layout_fragment_tool.xml.flat",
@@ -218,6 +226,10 @@
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable-anydpi_add.xml.flat",
         "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/drawable-anydpi/add.xml"
+    },
+    {
+        "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/layout_fragment_login.xml.flat",
+        "source": "/home/xf/AndroidStudioProjects/Note/app/src/main/res/layout/fragment_login.xml"
     },
     {
         "merged": "/home/xf/AndroidStudioProjects/Note/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",

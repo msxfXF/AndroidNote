@@ -6,17 +6,24 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.Message;
 import android.transition.Explode;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +39,18 @@ import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.iflytek.cloud.InitListener;
+import com.iflytek.cloud.RecognizerResult;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechRecognizer;
+import com.iflytek.cloud.SpeechUtility;
+import com.iflytek.cloud.ui.RecognizerDialog;
+import com.iflytek.cloud.ui.RecognizerDialogListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import cn.leancloud.AVLogger;
 import cn.leancloud.AVOSCloud;
@@ -49,11 +68,13 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private FragmentNote fragmentNote;
     private FragmentMarkdown fragmentMarkdown;
+    public static SpeechRecognizer mIatDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        initPermission();
         initLeanCloud();
         setWindowFeature(); //设置窗口风格 沉浸式 输入法
         setTransition();
@@ -61,47 +82,118 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
 
+        SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5d81c995");
+
+        mIatDialog = SpeechRecognizer.createRecognizer(this, new InitListener() {
+            @Override
+            public void onInit(int i) {
+
+            }
+        });
+
+
+        mIatDialog.setParameter(SpeechConstant.CLOUD_GRAMMAR, null);
+        mIatDialog.setParameter(SpeechConstant.SUBJECT, null);
+        //设置返回结果格式，目前支持json,xml以及plain 三种格式，其中plain为纯听写文本内容
+        mIatDialog.setParameter(SpeechConstant.RESULT_TYPE, "plain");
+        //此处engineType为“cloud”
+        mIatDialog.setParameter(SpeechConstant.ENGINE_TYPE, "cloud");
+        //设置语音输入语言，zh_cn为简体中文
+        mIatDialog.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
+        //设置结果返回语言
+        mIatDialog.setParameter(SpeechConstant.ACCENT, "mandarin");
+        // 设置语音前端点:静音超时时间，单位ms，即用户多长时间不说话则当做超时处理
+        //取值范围{1000～10000}
+        mIatDialog.setParameter(SpeechConstant.VAD_BOS, "4000");
+        //设置语音后端点:后端点静音检测时间，单位ms，即用户停止说话多长时间内即认为不再输入，
+        //自动停止录音，范围{0~10000}
+        mIatDialog.setParameter(SpeechConstant.VAD_EOS, "1000");
+        //设置标点符号,设置为"0"返回结果无标点,设置为"1"返回结果有标点
+        mIatDialog.setParameter(SpeechConstant.ASR_PTT, "1");
+
+
         OCR.getInstance(MainActivity.this).initAccessToken(new OnResultListener<AccessToken>() {
             @Override
             public void onResult(AccessToken result) {
                 // 调用成功，返回AccessToken对象
                 String token = result.getAccessToken();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "ok" + token, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
 
             @Override
             public void onError(OCRError error) {
                 // 调用失败，返回OCRError子类SDKError对象
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "fail", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 System.out.println("fail");
             }
         }, getApplicationContext());
+
+
+    }
+
+
+    private void initPermission() {
+        String permissions[] = {Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.INTERNET,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA
+        };
+
+        ArrayList<String> toApplyList = new ArrayList<String>();
+
+        for (String perm : permissions) {
+            if (PackageManager.PERMISSION_GRANTED != ContextCompat.checkSelfPermission(this, perm)) {
+                toApplyList.add(perm);
+                //进入到这里代表没有权限.
+
+            }
+        }
+        String tmpList[] = new String[toApplyList.size()];
+        if (!toApplyList.isEmpty()) {
+            ActivityCompat.requestPermissions(this, toApplyList.toArray(tmpList), 123);
+        }
+
     }
 
     private void initLeanCloud() {
 //        AVOSCloud.initialize(this,"YhmvLJOcWoFs1jcFsBkFfbWa-gzGzoHsz", "RTvYqUdJI3eKSpzaGm0HPaht","");
         AVOSCloud.initialize(this, "YhmvLJOcWoFs1jcFsBkFfbWa-gzGzoHsz", "RTvYqUdJI3eKSpzaGm0HPaht", "https://notes.msxf.fun");
         AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
-        AVUser.loginByEmail("1263413089@qq.com", "123456").subscribe(new Observer<AVUser>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(AVUser avUser) {
-                Toast.makeText(MainActivity.this, "登录成功" + avUser.getUsername(), Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Toast.makeText(MainActivity.this, "登录失败" + e.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
+//        AVUser.loginByEmail("1263413089@qq.com", "123456").subscribe(new Observer<AVUser>() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(AVUser avUser) {
+//                Toast.makeText(MainActivity.this, "登录成功" + avUser.getUsername(), Toast.LENGTH_LONG).show();
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Toast.makeText(MainActivity.this, "登录失败" + e.getMessage(), Toast.LENGTH_LONG).show();
+//
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//
+//            }
+//        });
 
     }
 
@@ -236,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         return FragmentTool.newInstance();
                     default:
-                        return FragmentNote.newInstance();
+                        return FragmentLogin.newInstance();
                 }
             }
 
@@ -308,5 +400,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        super.onDestroy();
+
     }
 }

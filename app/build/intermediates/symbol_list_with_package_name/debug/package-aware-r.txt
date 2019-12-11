@@ -1958,9 +1958,12 @@ id btn_cancel
 id btn_commit
 id btn_del
 id btn_emoji
+id btn_getcode
 id btn_i
 id btn_image
 id btn_link
+id btn_login
+id btn_regandlogin
 id btn_share
 id btn_table
 id btn_upload
@@ -2011,6 +2014,7 @@ id design_navigation_view
 id dialog_btn_del
 id dialog_btn_y
 id dialog_button
+id dialog_edit
 id dialog_edit_content
 id dialog_edit_title
 id dialog_title
@@ -2019,7 +2023,9 @@ id direct
 id disableHome
 id dropdown_menu
 id dynamic
+id edit_code
 id edit_content
+id edit_phone
 id edit_query
 id end
 id end_padder
@@ -2062,6 +2068,7 @@ id image_view_crop
 id image_view_state_aspect_ratio
 id image_view_state_rotate
 id image_view_state_scale
+id img_head
 id info
 id invisible
 id italic
@@ -2079,6 +2086,7 @@ id layout_rotate_wheel
 id layout_scale_wheel
 id left
 id left_back
+id lin_nls
 id lin_ocr
 id line1
 id line3
@@ -2287,8 +2295,12 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id text_gender
 id text_input_end_icon
 id text_input_start_icon
+id text_login
+id text_nickname
+id text_username
 id text_view_rotate
 id text_view_scale
 id textinput_counter
@@ -2437,7 +2449,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_login
+layout dialog_nls
 layout dialog_note
+layout fragment_login
 layout fragment_main
 layout fragment_markdown
 layout fragment_note

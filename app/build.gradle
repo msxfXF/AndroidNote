@@ -80,9 +80,10 @@ dependencies {
     implementation 'org.ligboy.retrofit2:converter-fastjson-android:2.1.0'
 
     //百度ocr
-
+    implementation files('libs/ocr-sdk.jar')
     //图片选择
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.3.8'
-    implementation files('libs/ocr-sdk.jar')
+    implementation files('libs/Msc.jar')
+
 
 }

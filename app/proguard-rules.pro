@@ -21,3 +21,6 @@
 #-renamesourcefileattribute SourceFile
 -keep class com.baidu.ocr.sdk.**{*;}
 -dontwarn com.baidu.ocr.**
+-keep class com.baidu.speech.**{*;}
+-keep class com.iflytek.**{*;}
+-keepattributes Signature

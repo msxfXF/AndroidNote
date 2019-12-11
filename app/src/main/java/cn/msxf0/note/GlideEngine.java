@@ -87,7 +87,24 @@ public class GlideEngine implements ImageEngine {
 
     @Override
     public void loadAsBitmapGridImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView, int placeholderId) {
-
+        Glide.with(context)
+                .asBitmap()
+                .override(180, 180)
+                .centerCrop()
+                .sizeMultiplier(0.5f)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(R.drawable.picture_icon_placeholder)
+                .load(url)
+                .into(new BitmapImageViewTarget(imageView) {
+                    @Override
+                    protected void setResource(Bitmap resource) {
+                        RoundedBitmapDrawable circularBitmapDrawable =
+                                RoundedBitmapDrawableFactory.
+                                        create(context.getResources(), resource);
+                        circularBitmapDrawable.setCornerRadius(8);
+                        imageView.setImageDrawable(circularBitmapDrawable);
+                    }
+                });
     }
 
 

@@ -9,10 +9,10 @@
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
         android:layout_marginBottom="60dp"
         android:orientation="vertical">
 
+        <include layout="@layout/material_view_pager_placeholder" />s
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,6 +32,8 @@
                 android:scaleType="centerCrop" />
 
             <LinearLayout
+                android:id="@+id/lin_ocr"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -39,7 +41,6 @@
                 android:paddingVertical="15dp">
 
                 <LinearLayout
-                    android:id="@+id/lin_ocr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -96,10 +97,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                android:background="#5C6BC0"
+                android:background="#9CCC65"
                 android:scaleType="centerCrop" />
 
             <LinearLayout
+                android:id="@+id/lin_nls"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -107,6 +109,7 @@
                 android:paddingVertical="15dp">
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -139,8 +142,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="        集成百度AI开放平台的SDK\n        支持普通话和略带口音的中文识别；支持粤语、四川话方言识别；支持英文识别
-"
+                        android:text="        集成科大讯飞开放平台的SDK\n        讯飞开放平台拥有先进的语音识别技术，核心技术达到先进水平，语音识别准确率已经达到实用标准。"
                         android:textColor="#ffeeeeee"
                         android:textSize="7pt" />
                 </LinearLayout>
@@ -164,7 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                android:background="#AB47BC"
+                android:background="#8D8E95"
                 android:scaleType="centerCrop" />
 
             <LinearLayout
@@ -207,7 +209,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="        集成和风天气的SDK\n        和风天气的天气数据开发是一个强大、现代化、开发友好的天气数据服务。"
+                        android:text="        集成和风天气的SDK(暂不支持)\n        和风天气的天气数据开发是一个强大、现代化、开发友好的天气数据服务。"
                         android:textColor="#ffeeeeee"
                         android:textSize="7pt" />
                 </LinearLayout>
